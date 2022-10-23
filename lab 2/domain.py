@@ -53,28 +53,3 @@ class Singleton:
     def get_message():
         return Singleton.message
 
-
-# Factory pattern
-def Factory(language="English"):
-    """Factory Method"""
-    localizers = {
-        "French": FrenchLocalizer,
-        "English": EnglishLocalizer,
-        "Spanish": SpanishLocalizer,
-    }
-
-    return localizers[language]()
-
-
-if __name__ == "__main__":
-
-    f = Factory("French")
-    e = Factory("English")
-    s = Factory("Spanish")
-
-    message = Singleton.get_message()
-
-    for msg in message:
-        print(f.localize(msg))
-        print(e.localize(msg))
-        print(s.localize(msg))
